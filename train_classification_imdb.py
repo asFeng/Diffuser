@@ -58,6 +58,7 @@ training_args = TrainingArguments(
     seed = 42,
     warmup_steps = 200,
     gradient_accumulation_steps = 8,
+    prediction_loss_only=True
 )
 
 steps_per_train_epoch       = int(len(tokenized_imdb['train'])/(training_args.per_device_train_batch_size*torch.cuda.device_count()*training_args.gradient_accumulation_steps ))
